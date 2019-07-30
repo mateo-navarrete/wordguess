@@ -11,4 +11,9 @@ describe('Game', () => {
     const game = new Game();
     expect(game.active).to.equal(false);
   });
+
+  it('should be a function', () => {
+    const game = new Game();
+    expect(game.init).to.be.an('function');
+  });
 });
