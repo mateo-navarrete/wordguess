@@ -1,9 +1,19 @@
 import { expect } from 'chai';
+import { spy } from 'sinon';
 import { TestComponent } from './components/TestComponent';
+import { App } from '.';
 
 describe('TestComponent', () => {
   it('returns a string', () => {
     expect(TestComponent()).to.be.a('string');
+  });
+});
+
+describe('App', () => {
+  it('calls the passed function', () => {
+    const callback = spy();
+    App(callback);
+    expect(callback.called).to.eql(true);
   });
 });
 
