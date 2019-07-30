@@ -1,8 +1,4 @@
-require('@babel/core').transform('code', {});
-import { TestComponent } from './components/TestComponent';
+import Game from './components/Game';
 
-export const App = cb => {
-  if (cb) console.log('@App:', cb());
-};
-
-App(TestComponent);
+const game = new Game();
+game.init();
