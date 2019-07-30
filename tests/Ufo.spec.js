@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { ufo } from '../db/ufo';
+import { ufo } from '../src/db/ufo';
 
 describe('ufo', () => {
   it('returns an array', () => {
