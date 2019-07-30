@@ -10,6 +10,7 @@ describe('Game', () => {
   it('should have default values', () => {
     const game = new Game();
     expect(game.active).to.equal(false);
+    expect(game.words).to.equal(null);
   });
 
   it('should be a function', () => {
