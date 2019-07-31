@@ -14,6 +14,7 @@ describe('Game', () => {
 
   it('should have default values', () => {
     expect(GAME.active).to.equal(false);
+    expect(GAME.player).to.be.an('object');
     expect(GAME.view).to.be.an('object');
     expect(GAME.word).to.be.an('object');
   });
