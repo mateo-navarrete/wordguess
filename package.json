@@ -1,19 +1,21 @@
 {
-  "name": "wordguess",
-  "version": "1.0.0",
-  "description": "",
+  "author": "Mateo Navarrete <mateonavarrete@pursuit.org>",
+  "description": "commandline wordguess game similar to hangman",
+  "homepage": "https://mateo-portfolio.firebaseapp.com/",
+  "keywords": [
+    "codecademy",
+    "hangman",
+    "ufo game",
+    "commandline word guess game"
+  ],
+  "license": "MIT",
   "main": "src/index.js",
+  "name": "wordguess",
   "scripts": {
     "start": "nodemon --exec babel-node src/index",
     "test": "mocha --require @babel/register 'tests/**/**spec.js'"
   },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^6.2.0",
-    "sinon": "^7.3.2"
-  },
+  "version": "1.0.0",
   "dependencies": {
     "@babel/core": "^7.5.5",
     "@babel/node": "^7.5.5",
@@ -22,5 +24,10 @@
     "@babel/runtime": "^7.5.5",
     "inquirer": "^6.5.0",
     "nodemon": "^1.19.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0",
+    "sinon": "^7.3.2"
   }
 }
