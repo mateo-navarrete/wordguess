@@ -4,7 +4,6 @@ const GAME = new Game();
 
 describe('Game', () => {
   it('should be a function', () => {
-    expect(GAME.display).to.be.a('function');
     expect(GAME.init).to.be.a('function');
     expect(GAME.move).to.be.a('function');
     expect(GAME.over).to.be.a('function');
