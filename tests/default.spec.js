@@ -21,3 +21,10 @@ describe('true or false', () => {
 //     expect(callback.called).to.eql(true);
 //   });
 // });
+
+// removed from package.json:
+// @babel/register
+// @babel/cli
+// @babel/plugin-transform-async-to-generator
+// removed from .babelrc:
+// "plugins":["@babel/plugin-transform-async-to-generator"]
