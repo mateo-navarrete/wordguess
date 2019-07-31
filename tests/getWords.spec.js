@@ -11,7 +11,7 @@ describe('getWords', () => {
     expect(result).to.be.an('object');
   });
 
-  it('should return an object with a key of map', async () => {
+  it('should return an object with a property of map', async () => {
     const result = await getWords();
     expect(result).to.have.property('map');
   });

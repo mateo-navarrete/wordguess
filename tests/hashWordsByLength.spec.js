@@ -18,11 +18,11 @@ describe('hashWordsByLength', () => {
     expect(hashWordsByLength()).to.be.an('object');
   });
 
-  it('should have a key of map', () => {
+  it('should return an object with a property of map', () => {
     expect(hashWordsByLength()).to.have.property('map');
   });
 
-  it('should have key name suffixes equal to number of letters in the array of words', () => {
+  it('should return an object with key name suffixes equal to number of letters in the array of words', () => {
     expect(TEST_RESULT).to.have.property('wordLength3');
     expect(TEST_RESULT).to.not.have.property('wordLength4');
     expect(TEST_RESULT).to.have.property('wordLength5');
@@ -31,7 +31,7 @@ describe('hashWordsByLength', () => {
     expect(hashWordsByLength()).to.not.have.property('wordLength3');
   });
 
-  it('should have a key of map with keys equal to word lengths and values equal to number of words with relative length', () => {
+  it('should return an object with a property of map with keys equal to word lengths and values equal to number of words with relative length', () => {
     expect(TEST_RESULT).to.have.property('map');
     expect(TEST_RESULT)
       .to.have.property('map')
