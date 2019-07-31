@@ -1,4 +1,5 @@
-import { getRandomWord, getWords } from '../api';
+import { getWords } from '../api';
+import { getRandomWord } from '../services';
 
 export default class Word {
   constructor() {
