@@ -5,7 +5,7 @@ const WORD = new Word();
 describe('Word', () => {
   it('should be a function', () => {
     expect(WORD.init).to.be.a('function');
-    expect(WORD.clear).to.be.a('function');
+    expect(WORD.start).to.be.a('function');
   });
 
   it('should return an object', () => {

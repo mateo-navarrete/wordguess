@@ -5,6 +5,7 @@ const GAME = new Game();
 describe('Game', () => {
   it('should be a function', () => {
     expect(GAME.init).to.be.a('function');
+    expect(GAME.start).to.be.a('function');
   });
 
   it('should return an object', () => {
@@ -13,6 +14,6 @@ describe('Game', () => {
 
   it('should have default values', () => {
     expect(GAME.active).to.equal(false);
-    expect(GAME.word).to.equal(null);
+    expect(GAME.word).to.not.equal(false);
   });
 });
