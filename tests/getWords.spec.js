@@ -3,7 +3,7 @@ import { getWords } from '../src/api';
 
 describe('getWords', () => {
   it('should be a function', () => {
-    expect(getWords).to.be.an('function');
+    expect(getWords).to.be.a('function');
   });
 
   it('should return an object', async () => {
