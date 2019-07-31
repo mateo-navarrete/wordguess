@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import Player from '../src/components/Player';
+import { MOVES_MAX } from '../src/constants';
 const PLAYER = new Player();
 
 describe('Player', () => {
@@ -16,5 +17,6 @@ describe('Player', () => {
     expect(PLAYER.data).to.be.an('array');
     expect(PLAYER.history).to.be.an('array');
     expect(PLAYER.moves).to.be.an('array');
+    expect(PLAYER.max).to.equal(MOVES_MAX);
   });
 });
