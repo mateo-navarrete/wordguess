@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import { hashWordsByLength } from '../src/services';
 const TEST_ARRAY = ['cat', 'dog', 'kitty', 'kitten'];
+const TEST_RESULT = hashWordsByLength(TEST_ARRAY);
 
 describe('hashWordsByLength', () => {
   it('should be a function', () => {
@@ -22,27 +23,25 @@ describe('hashWordsByLength', () => {
   });
 
   it('should have key name suffixes equal to number of letters in the array of words', () => {
-    const result = hashWordsByLength(TEST_ARRAY);
-    expect(result).to.have.property('wordLength3');
-    expect(result).to.not.have.property('wordLength4');
-    expect(result).to.have.property('wordLength5');
-    expect(result).to.have.property('wordLength6');
-    expect(result).to.not.have.property('wordLength7');
+    expect(TEST_RESULT).to.have.property('wordLength3');
+    expect(TEST_RESULT).to.not.have.property('wordLength4');
+    expect(TEST_RESULT).to.have.property('wordLength5');
+    expect(TEST_RESULT).to.have.property('wordLength6');
+    expect(TEST_RESULT).to.not.have.property('wordLength7');
     expect(hashWordsByLength()).to.not.have.property('wordLength3');
   });
 
   it('should have a key of map with keys equal to word lengths and values equal to number of words with relative length', () => {
-    const result = hashWordsByLength(TEST_ARRAY);
-    expect(result).to.have.property('map');
-    expect(result)
+    expect(TEST_RESULT).to.have.property('map');
+    expect(TEST_RESULT)
       .to.have.property('map')
       .to.have.property('3')
       .to.equal(2);
-    expect(result)
+    expect(TEST_RESULT)
       .to.have.property('map')
       .to.have.property('3')
       .to.not.equal(3);
-    expect(result)
+    expect(TEST_RESULT)
       .to.have.property('map')
       .to.not.have.property('4');
     expect(hashWordsByLength())

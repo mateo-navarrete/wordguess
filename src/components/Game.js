@@ -3,7 +3,7 @@ import { getWords } from '../api';
 export default class Game {
   constructor() {
     this.active = false;
-    this.words = null;
+    this.word = null;
   }
 
   async init() {
