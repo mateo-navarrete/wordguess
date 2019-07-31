@@ -2,11 +2,11 @@ import { expect } from 'chai';
 import { ufo } from '../src/db/ufo';
 
 describe('ufo', () => {
-  it('returns an array', () => {
-    expect(ufo).to.be.a('array');
+  it('should return an array', () => {
+    expect(ufo).to.be.an('array');
   });
 
-  it('returns an array of strings', () => {
+  it('should return an array of strings', () => {
     ufo.forEach(el => expect(el).to.be.a('string'));
   });
 });

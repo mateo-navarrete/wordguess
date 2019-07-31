@@ -10,4 +10,9 @@ describe('getWordsFromDB', () => {
     const result = await getWordsFromDB();
     expect(result).to.be.an('array');
   });
+
+  it('should return an array of strings', async () => {
+    const result = await getWordsFromDB();
+    result.forEach(el => expect(el).to.be.a('string'));
+  });
 });
