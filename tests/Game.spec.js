@@ -5,6 +5,7 @@ const GAME = new Game();
 describe('Game', () => {
   it('should be a function', () => {
     expect(GAME.init).to.be.a('function');
+    expect(GAME.run).to.be.a('function');
     expect(GAME.start).to.be.a('function');
   });
 

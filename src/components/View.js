@@ -1,4 +1,14 @@
-import { ERROR, RULES, RULES_VIEW, TITLE, TITLE_VIEW, UFO, ufo } from '../constants';
+import {
+  CLEAR,
+  ERROR,
+  RULES,
+  RULES_VIEW,
+  START,
+  TITLE,
+  TITLE_VIEW,
+  UFO,
+  ufo
+} from '../constants';
 
 export default class View {
   constructor() {
@@ -17,6 +27,9 @@ export default class View {
       case UFO:
         view = this.ufo[payload];
         break;
+      case START:
+        view = this.ufo[0];
+        break;
       default:
         view = this[type];
     }
@@ -24,8 +37,20 @@ export default class View {
     return view;
   }
 
+  start() {
+    this.render({ type: CLEAR });
+    this.render({ type: TITLE });
+    this.render({ type: RULES });
+    this.render({ type: START });
+  }
+
   render(action) {
-    const view = getView(action);
+    if (action.type === CLEAR) {
+      console.clear();
+      return;
+    }
+
+    const view = this.getView(action);
     console.log(view);
   }
 }

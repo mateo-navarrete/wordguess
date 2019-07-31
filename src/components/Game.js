@@ -16,6 +16,16 @@ export default class Game {
   }
 
   start() {
-    console.log('@game.start', this.word);
+    this.active = true;
+    // this.msg = '';
+    this.player.start();
+    this.word.start();
+    this.view.start();
+    this.run();
+  }
+
+  run() {
+    const { secret, selected } = this.word;
+    console.log('@game.run', secret, selected);
   }
 }
