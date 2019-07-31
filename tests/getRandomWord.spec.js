@@ -18,7 +18,7 @@ describe('getRandomWord', () => {
     expect(getRandomWord(TEST_HASH_MAP)).to.be.an('object');
   });
 
-  it('should return an object with keys of hash and index', () => {
+  it('should return an object with properties of hash and index', () => {
     expect(getRandomWord(TEST_HASH_MAP)).to.have.property('hash');
     expect(getRandomWord(TEST_HASH_MAP)).to.have.property('index');
   });
