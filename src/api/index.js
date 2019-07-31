@@ -1,3 +1,3 @@
-import { getWordsFromDB } from './getWordsFromDB';
+import { getWords } from './getWords';
 
-export { getWordsFromDB };
+export { getWords };
