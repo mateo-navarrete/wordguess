@@ -14,6 +14,10 @@ export default class Player {
     this.moves = [];
   }
 
+  canMove() {
+    return this.moves.length < this.max;
+  }
+
   move(data) {
     return inquirer.prompt(data || this.data);
   }
