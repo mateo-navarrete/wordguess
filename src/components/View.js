@@ -1,26 +1,37 @@
 import {
   CLEAR,
+  CODEWORD,
   ERROR,
-  RULES,
+  ERROR_INPUT,
+  ERROR_DUPLICATE,
+  ERROR_INPUT_VIEW,
+  ERROR_DUPLICATE_VIEW,
+  IS_WIN,
+  IS_LOSS,
+  LOSS_VIEW,
   RULES_VIEW,
   START,
-  TITLE,
   TITLE_VIEW,
   UFO,
+  WIN_VIEW,
   ufo
 } from '../constants';
 
 export default class View {
   constructor() {
-    this.messages = {};
-    this.rules = RULES_VIEW;
-    this.title = TITLE_VIEW;
+    this.messages = {
+      [ERROR_INPUT]: ERROR_INPUT_VIEW,
+      [ERROR_DUPLICATE]: ERROR_DUPLICATE_VIEW,
+    };
     this.ufo = ufo;
   }
 
   getView({ type, payload }) {
     let view = '';
     switch (type) {
+      case CODEWORD:
+        view = CODEWORD + ' ' + payload;
+        break;
       case ERROR:
         view = this.messages[payload];
         break;
@@ -30,17 +41,27 @@ export default class View {
       case START:
         view = this.ufo[0];
         break;
+      case IS_WIN:
+        view =
+          this.ufo[this.ufo.length - 1] +
+          `
+ ${WIN_VIEW}`;
+        break;
+      case IS_LOSS:
+        view =
+          this.ufo[this.ufo.length - 3] +
+          `
+ ${LOSS_VIEW}`;
+        break;
       default:
-        view = this[type];
+        view = type;
     }
 
     return view;
   }
 
   start() {
-    this.render({ type: CLEAR });
-    this.render({ type: TITLE });
-    this.render({ type: RULES });
+    this.update();
     this.render({ type: START });
   }
 
@@ -52,5 +73,11 @@ export default class View {
 
     const view = this.getView(action);
     console.log(view);
+  }
+
+  update() {
+    this.render({ type: CLEAR });
+    this.render({ type: TITLE_VIEW });
+    this.render({ type: RULES_VIEW });
   }
 }

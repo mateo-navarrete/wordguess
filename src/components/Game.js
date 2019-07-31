@@ -1,7 +1,18 @@
 import Player from './Player';
 import View from './View';
 import Word from './Word';
-import { HISTORY, MOVES } from '../constants';
+import {
+  CLEAR,
+  CODEWORD,
+  ERROR,
+  GUESSES,
+  HISTORY,
+  IS_LOSS,
+  IS_WIN,
+  MOVES,
+  REPLAY,
+  UFO
+} from '../constants';
 import { compareLetterToWord, validateInput } from '../services';
 
 export default class Game {
@@ -19,7 +30,6 @@ export default class Game {
 
   start() {
     this.active = true;
-    // this.msg = '';
     this.player.start();
     this.word.start();
     this.view.start();
@@ -27,25 +37,23 @@ export default class Game {
   }
 
   run() {
-    this.active ? this.move() : this.over();
+    this.active ? this.move() : this.over('@err game.run');
   }
 
   move() {
-    const { secret, selected } = this.word;
-    console.log('@game.run', secret, selected);
-
+    this.view.render({ type: CODEWORD, payload: this.word.secret });
     this.player.canMove()
       ? this.player
           .move()
           .then(({ move }) => this.process(move))
           .catch(err => console.error(err))
-      : this.over('lose()');
+      : this.over(IS_LOSS);
   }
 
   process(move) {
     const input = { move, history: this.player.history };
     const { isValid, payload } = validateInput(input);
-    isValid ? this.update(move.toLowerCase()) : this.display(payload);
+    isValid ? this.update(move.toLowerCase()) : this.resume(payload);
   }
 
   update(move) {
@@ -61,20 +69,38 @@ export default class Game {
       this.player.update({ type: MOVES, payload: move });
     }
 
-    result === selected ? this.over('win()') : this.resume();
+    result === selected ? this.over(IS_WIN) : this.resume();
   }
 
-  display(payload) {
-    //render(payload)
-    this.resume();
-  }
+  resume(payload) {
+    const { moves } = this.player;
+    this.view.update();
+    this.view.render({ type: UFO, payload: moves.length });
+    if (moves.length) {
+      this.view.render({ type: GUESSES + moves.toString() });
+    }
 
-  resume() {
-    // this.render();
-    // this.run();
+    if (payload) {
+      this.view.render({ type: ERROR, payload: payload });
+    }
+
+    this.run();
   }
 
   over(msg) {
-    console.log('@Game.over', msg);
+    this.active = false;
+    this.view.render({ type: CLEAR });
+    this.view.render({ type: msg });
+    this.view.render({ type: CODEWORD, payload: this.word.selected });
+    this.replay();
+  }
+
+  replay() {
+    this.player
+      .move(REPLAY)
+      .then(({ replay }) => {
+        replay ? this.start() : this.view.render({ type: CLEAR });
+      })
+      .catch(err => console.error(err));
   }
 }
