@@ -7,7 +7,9 @@ export const ERROR_INPUT =
   'Please guess a single letter in the English alphabet';
 export const ERROR_DUPLICATE =
   'You can only guess that letter once, please try again.';
+export const HISTORY = 'history';
 export const KEYNAME = 'move';
+export const MOVES = 'moves';
 export const MOVES_MAX = 6;
 export const PROMPT = 'Please enter your guess:';
 export const RULES = 'rules';

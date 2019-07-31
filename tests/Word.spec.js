@@ -6,6 +6,7 @@ describe('Word', () => {
   it('should be a function', () => {
     expect(WORD.init).to.be.a('function');
     expect(WORD.start).to.be.a('function');
+    expect(WORD.update).to.be.a('function');
   });
 
   it('should return an object', () => {

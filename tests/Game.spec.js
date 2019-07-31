@@ -4,9 +4,15 @@ const GAME = new Game();
 
 describe('Game', () => {
   it('should be a function', () => {
+    expect(GAME.display).to.be.a('function');
     expect(GAME.init).to.be.a('function');
+    expect(GAME.move).to.be.a('function');
+    expect(GAME.over).to.be.a('function');
+    expect(GAME.process).to.be.a('function');
+    expect(GAME.resume).to.be.a('function');
     expect(GAME.run).to.be.a('function');
     expect(GAME.start).to.be.a('function');
+    expect(GAME.update).to.be.a('function');
   });
 
   it('should return an object', () => {

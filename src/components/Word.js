@@ -21,4 +21,8 @@ export default class Word {
       .map(() => '-')
       .join('');
   }
+
+  update(data) {
+    this.secret = data;
+  }
 }

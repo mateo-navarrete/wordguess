@@ -21,4 +21,8 @@ export default class Player {
   move(data) {
     return inquirer.prompt(data || this.data);
   }
+
+  update({ type, payload }) {
+    this[type].push(payload);
+  }
 }

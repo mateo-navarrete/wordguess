@@ -8,6 +8,7 @@ describe('Player', () => {
     expect(PLAYER.canMove).to.be.a('function');
     expect(PLAYER.move).to.be.a('function');
     expect(PLAYER.start).to.be.a('function');
+    expect(PLAYER.update).to.be.a('function');
   });
 
   it('should return an object', () => {
