@@ -26,6 +26,7 @@ describe('validateInput', () => {
   it('should return an object with property isValid', () => {
     expect(validateInput())
       .to.be.an('object')
-      .to.have.property('isValid');
+      .with.property('isValid')
+      .to.be.a('boolean');
   });
 });
