@@ -9,3 +9,22 @@ describe('true or false', () => {
     expect(false).to.eql(false);
   });
 });
+
+// import { expect } from 'chai';
+// import { spy } from 'sinon';
+// import { App } from '../src';
+//
+// describe('App', () => {
+//   it('calls the passed function', () => {
+//     const callback = spy();
+//     App(callback);
+//     expect(callback.called).to.eql(true);
+//   });
+// });
+
+// removed from package.json:
+// @babel/register
+// @babel/cli
+// @babel/plugin-transform-async-to-generator
+// removed from .babelrc:
+// "plugins":["@babel/plugin-transform-async-to-generator"]

@@ -3,7 +3,7 @@ import { hashWordsByLength } from '../src/services';
 
 describe('hashWordsByLength', () => {
   it('should be a function', () => {
-    expect(hashWordsByLength).to.be.an('function');
+    expect(hashWordsByLength).to.be.a('function');
   });
 
   it('should by default take an array as an argument', () => {

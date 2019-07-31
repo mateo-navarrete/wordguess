@@ -4,7 +4,7 @@ import Game from '../src/components/Game';
 describe('Game', () => {
   it('should be a function', () => {
     const game = new Game();
-    expect(game.init).to.be.an('function');
+    expect(game.init).to.be.a('function');
   });
 
   it('should return an object', () => {
