@@ -1,10 +1,11 @@
 import inquirer from 'inquirer';
-import { KEYNAME, PROMPT } from '../constants';
+import { KEYNAME, MOVES_MAX, PROMPT } from '../constants';
 
 export default class Player {
   constructor() {
     this.data = [{ name: KEYNAME, message: PROMPT }];
     this.history = [];
+    this.max = MOVES_MAX;
     this.moves = [];
   }
 

@@ -8,6 +8,7 @@ export const ERROR_INPUT =
 export const ERROR_DUPLICATE =
   'You can only guess that letter once, please try again.';
 export const KEYNAME = 'move';
+export const MOVES_MAX = 6;
 export const PROMPT = 'Please enter your guess:';
 export const RULES = 'rules';
 export const RULES_VIEW =
