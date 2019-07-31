@@ -1,4 +1,4 @@
-import { getWordsFromDB } from '../api';
+import { getWords } from '../api';
 
 export default class Game {
   constructor() {
@@ -7,7 +7,7 @@ export default class Game {
   }
 
   async init() {
-    let isReady = await getWordsFromDB();
+    let isReady = await getWords();
     if (isReady) console.log('@game.init', isReady);
     return isReady;
   }

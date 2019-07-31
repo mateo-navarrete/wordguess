@@ -1,4 +1,3 @@
-import { getWordsFromDB } from './getWordsFromDB';
-import { hashWordsByLength } from './hashWordsByLength';
+import { getWords } from './getWords';
 
-export { getWordsFromDB, hashWordsByLength };
+export { getWords };

@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { getWordsFromDB } from '../src/api';
+import { getWordsFromDB } from '../src/services';
 
 describe('getWordsFromDB', () => {
   it('should be a function', () => {

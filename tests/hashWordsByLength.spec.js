@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { hashWordsByLength } from '../src/api';
+import { hashWordsByLength } from '../src/services';
 
 describe('hashWordsByLength', () => {
   it('should be a function', () => {
