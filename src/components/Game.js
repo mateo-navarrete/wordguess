@@ -1,7 +1,18 @@
 import Player from './Player';
 import View from './View';
 import Word from './Word';
-import { CODEWORD, ERROR, GUESSES, HISTORY, MOVES, UFO } from '../constants';
+import {
+  CLEAR,
+  CODEWORD,
+  ERROR,
+  GUESSES,
+  HISTORY,
+  IS_LOSS,
+  IS_WIN,
+  MOVES,
+  REPLAY,
+  UFO
+} from '../constants';
 import { compareLetterToWord, validateInput } from '../services';
 
 export default class Game {
@@ -19,7 +30,6 @@ export default class Game {
 
   start() {
     this.active = true;
-    // this.msg = '';
     this.player.start();
     this.word.start();
     this.view.start();
@@ -27,7 +37,7 @@ export default class Game {
   }
 
   run() {
-    this.active ? this.move() : this.over();
+    this.active ? this.move() : this.over('@err game.run');
   }
 
   move() {
@@ -37,7 +47,7 @@ export default class Game {
           .move()
           .then(({ move }) => this.process(move))
           .catch(err => console.error(err))
-      : this.over('lose()');
+      : this.over(IS_LOSS);
   }
 
   process(move) {
@@ -59,7 +69,7 @@ export default class Game {
       this.player.update({ type: MOVES, payload: move });
     }
 
-    result === selected ? this.over('win()') : this.resume();
+    result === selected ? this.over(IS_WIN) : this.resume();
   }
 
   resume(payload) {
@@ -79,6 +89,18 @@ export default class Game {
 
   over(msg) {
     this.active = false;
-    console.log('@Game.over', msg);
+    this.view.render({ type: CLEAR });
+    this.view.render({ type: msg });
+    this.view.render({ type: CODEWORD, payload: this.word.selected });
+    this.replay();
+  }
+
+  replay() {
+    this.player
+      .move(REPLAY)
+      .then(({ replay }) => {
+        replay ? this.start() : this.view.render({ type: CLEAR });
+      })
+      .catch(err => console.error(err));
   }
 }

@@ -1,15 +1,19 @@
 import {
   CLEAR,
+  CODEWORD,
   ERROR,
   ERROR_INPUT,
   ERROR_DUPLICATE,
   ERROR_INPUT_VIEW,
   ERROR_DUPLICATE_VIEW,
+  IS_WIN,
+  IS_LOSS,
+  LOSS_VIEW,
   RULES_VIEW,
-  CODEWORD,
   START,
   TITLE_VIEW,
   UFO,
+  WIN_VIEW,
   ufo
 } from '../constants';
 
@@ -36,6 +40,18 @@ export default class View {
         break;
       case START:
         view = this.ufo[0];
+        break;
+      case IS_WIN:
+        view =
+          this.ufo[this.ufo.length - 1] +
+          `
+ ${WIN_VIEW}`;
+        break;
+      case IS_LOSS:
+        view =
+          this.ufo[this.ufo.length - 3] +
+          `
+ ${LOSS_VIEW}`;
         break;
       default:
         view = type;

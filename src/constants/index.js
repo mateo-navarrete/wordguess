@@ -12,6 +12,10 @@ export const ERROR_DUPLICATE_VIEW =
   'You can only guess that letter once, please try again.';
 export const GUESSES = 'incorrect guesses: ';
 export const HISTORY = 'history';
+export const IS_LOSS = 'loss';
+export const LOSS_VIEW = 'You made some new alien friends!';
+export const IS_WIN = 'win';
+export const WIN_VIEW = 'You saved humankind!';
 export const KEYNAME = 'move';
 export const MOVES = 'moves';
 export const MOVES_MAX = 6;
@@ -21,3 +25,10 @@ export const RULES_VIEW =
 export const START = 'start';
 export const TITLE_VIEW = 'UFO: The Game';
 export const UFO = 'ufo';
+export const REPLAY = [
+  {
+    type: 'confirm',
+    name: 'replay',
+    message: 'Play again?',
+  },
+];

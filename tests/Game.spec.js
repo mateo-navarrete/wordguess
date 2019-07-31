@@ -8,6 +8,7 @@ describe('Game', () => {
     expect(GAME.move).to.be.a('function');
     expect(GAME.over).to.be.a('function');
     expect(GAME.process).to.be.a('function');
+    expect(GAME.replay).to.be.a('function');
     expect(GAME.resume).to.be.a('function');
     expect(GAME.run).to.be.a('function');
     expect(GAME.start).to.be.a('function');
