@@ -1,8 +1,9 @@
 import { getWords } from '../api';
-import { getRandomWord } from '../services';
+import { getRandomWord, updateWordBank } from '../services';
 
 export default class Word {
   constructor() {
+    this.bank = [];
     this.list = null;
     this.secret = '';
     this.selected = '';
@@ -15,7 +16,8 @@ export default class Word {
 
   start() {
     const { hash, index } = getRandomWord(this.list.map);
-    this.selected = this.list['wordLength' + hash][index];
+    this.bank = this.list['wordLength' + hash];
+    this.selected = this.bank[index];
     this.secret = this.selected
       .split('')
       .map(() => '-')
@@ -23,6 +25,7 @@ export default class Word {
   }
 
   update(data) {
+    this.bank = updateWordBank({ guess: data, bank: this.bank });
     this.secret = data;
   }
 }

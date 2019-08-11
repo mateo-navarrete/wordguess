@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import View from '../src/components/View';
 import {
+  BANK,
   CLEAR,
   ERROR_INPUT,
   ERROR_DUPLICATE,
@@ -39,5 +40,6 @@ describe('View', () => {
     expect(VIEW.getView({ type: RULES_VIEW })).to.equal(RULES_VIEW);
     expect(VIEW.getView({ type: TITLE_VIEW })).to.equal(TITLE_VIEW);
     expect(VIEW.getView({ type: START })).to.equal(ufo[0]);
+    expect(VIEW.getView({ type: BANK, payload: 1 })).to.equal(BANK + ' 1');
   });
 });

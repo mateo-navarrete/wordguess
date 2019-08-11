@@ -2,6 +2,7 @@ import Player from './Player';
 import View from './View';
 import Word from './Word';
 import {
+  BANK,
   CLEAR,
   CODEWORD,
   ERROR,
@@ -79,6 +80,8 @@ export default class Game {
     if (moves.length) {
       this.view.render({ type: GUESSES + moves.toString() });
     }
+
+    this.view.render({ type: BANK, payload: this.word.bank.length });
 
     if (payload) {
       this.view.render({ type: ERROR, payload: payload });

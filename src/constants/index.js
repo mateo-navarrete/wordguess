@@ -1,6 +1,7 @@
 import { ufo } from './ufo';
 
 export { ufo };
+export const BANK = 'Potential words in dictionary:';
 export const CLEAR = 'clear';
 export const CODEWORD = 'codeword:';
 export const ERROR = 'error';

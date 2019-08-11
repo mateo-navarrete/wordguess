@@ -1,4 +1,5 @@
 import {
+  BANK,
   CLEAR,
   CODEWORD,
   ERROR,
@@ -29,6 +30,9 @@ export default class View {
   getView({ type, payload }) {
     let view = '';
     switch (type) {
+      case BANK:
+        view = BANK + ' ' + payload;
+        break;
       case CODEWORD:
         view = CODEWORD + ' ' + payload;
         break;
